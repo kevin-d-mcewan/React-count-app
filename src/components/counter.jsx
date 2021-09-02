@@ -24,7 +24,11 @@ class Counter extends Component {
     }
 
     handleIncrement = () => {
-        console.log('Increment Clicked', this);
+        // This doesn't work bc React doesn't realize the state is being
+        // incremented so needs to be done a different way
+        
+        // this.state.count++;
+        this.setState({ count: this.state.count + 1})
 
     }
     
