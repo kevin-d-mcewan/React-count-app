@@ -3,8 +3,6 @@ import React, { Component } from "react";
 class Counter extends Component {
     state = {
         count: 0,
-        imageUrl: 'https://picsum.photos/200',
-        tags: ['tag1', 'tag2', 'tag3'],
     };
 
     styles = {
@@ -12,43 +10,29 @@ class Counter extends Component {
         fontSize: 25,
     };
 
-    // constructor() {
-    //     super();
-    //     this.handleIncrement = this.handleIncrement.bind(this);
-    // }
-
-    renderTags() {
-        if (this.state.tags.length === 0) return <p>There are no tags!</p>;
-
-        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
-    }
-
-    handleIncrement = () => {
-        // This doesn't work bc React doesn't realize the state is being
-        // incremented so needs to be done a different way
-        
-        // this.state.count++;
+    handleIncrement = (product) => {
+        //product is just the 'event' from DOM Events where we normally pass an 'e' which we could have done.
+        console.log(product);
         this.setState({ count: this.state.count + 1})
 
     }
+
+    // This is one way to pass arguements into handleIcrement but we are just using an extra function to wrap the
+    // 'handleIncrement function' better to just pass it inline to the <button onClick().
+    // doHandleIncrement = () => {
+    //     this.handleIncrement({ id: 1 });
+    // };
+
+    
     
     render() {
         return (
             <div>
-                {/* <span style={this.styles}className="d-flex badge badge-primary m-2">{this.formatCount()}</span> */}
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
-                <br></br>
-                <img src={this.state.imageUrl} alt="" />;
-                <br></br>
-                <ul>
-                    {this.state.tags.map(tag => <li key={tag}>{ tag }</li>)}
-                </ul>
-                <div>
-                    {/* Right below would be 2nd option if didnt want to do 'renderTags() method */}
-                    {/* { this.state.tags.length === 0 && 'Please create a new tag!'} */}
-                    {this.renderTags()}
-                </div>
+                <button
+                    onClick={() => this.handleIncrement(this.product)}
+                    className="btn btn-secondary btn-sm">
+                    Increment</button>
           </div>
                 
         );
