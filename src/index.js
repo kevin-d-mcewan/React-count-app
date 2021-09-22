@@ -1,22 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-// eslint-disable-next-line no-unused-vars
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.css';
-import Counters from './components/counters';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
-  
-  <Counters />,
-  
-  document.getElementById('root')
+  <App />,
+
+  document.getElementById("root")
 );
 // Above can be written like this as well...
 // ReactDom.render(<Counter />, document.getElementById('root'));
 // registerServiceWorker();   *If using this must be imported up top instead of 'reportWebVitals'
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
